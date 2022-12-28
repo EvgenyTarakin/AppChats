@@ -10,6 +10,14 @@
 		1B65B3D92955D2AB00623514 /* AppPhoneNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B65B3D82955D2AB00623514 /* AppPhoneNumberTextField.swift */; };
 		1B65B3E02955DDBE00623514 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B65B3DF2955DDBE00623514 /* UIButtonExtension.swift */; };
 		1B65B3E329560BF400623514 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1B65B3E229560BF400623514 /* MessageKit */; };
+		1B86EFB2295C2BAB00436AF6 /* AllChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86EFB1295C2BAB00436AF6 /* AllChatsView.swift */; };
+		1B86EFB4295C2BBA00436AF6 /* AllChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86EFB3295C2BBA00436AF6 /* AllChatsViewController.swift */; };
+		1B86EFB6295C2ED400436AF6 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86EFB5295C2ED300436AF6 /* UILabelExtension.swift */; };
+		1B86EFB9295C324D00436AF6 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86EFB8295C324D00436AF6 /* ChatCell.swift */; };
+		1B86EFBB295C69CC00436AF6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86EFBA295C69CC00436AF6 /* ProfileView.swift */; };
+		1B86EFBD295C6C4700436AF6 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86EFBC295C6C4700436AF6 /* ChatView.swift */; };
+		1B86EFBF295C6C5600436AF6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86EFBE295C6C5600436AF6 /* ProfileViewController.swift */; };
+		1B86EFC1295C6C6300436AF6 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86EFC0295C6C6200436AF6 /* ChatViewController.swift */; };
 		1BB6E6BE29545DE9008E04E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6E6BD29545DE9008E04E9 /* AppDelegate.swift */; };
 		1BB6E6C029545DE9008E04E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6E6BF29545DE9008E04E9 /* SceneDelegate.swift */; };
 		1BB6E6C229545DE9008E04E9 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6E6C129545DE9008E04E9 /* EnterViewController.swift */; };
@@ -26,11 +34,22 @@
 		1BB6E6EB2954816F008E04E9 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6E6EA2954816F008E04E9 /* RegistrationViewController.swift */; };
 		1BB6E6ED29548198008E04E9 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6E6EC29548198008E04E9 /* UITextFieldExtension.swift */; };
 		1BB6E6F029548544008E04E9 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1BB6E6EF29548544008E04E9 /* PhoneNumberKit */; };
+		1BE8FD10295CA7CD00915BBE /* AppNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD0F295CA7CD00915BBE /* AppNavigationBar.swift */; };
+		1BE8FD12295CAE9300915BBE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD11295CAE9300915BBE /* UIViewControllerExtension.swift */; };
+		1BE8FD15295CB54B00915BBE /* NavBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD14295CB54B00915BBE /* NavBarType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1B65B3D82955D2AB00623514 /* AppPhoneNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhoneNumberTextField.swift; sourceTree = "<group>"; };
 		1B65B3DF2955DDBE00623514 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		1B86EFB1295C2BAB00436AF6 /* AllChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsView.swift; sourceTree = "<group>"; };
+		1B86EFB3295C2BBA00436AF6 /* AllChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsViewController.swift; sourceTree = "<group>"; };
+		1B86EFB5295C2ED300436AF6 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		1B86EFB8295C324D00436AF6 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		1B86EFBA295C69CC00436AF6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1B86EFBC295C6C4700436AF6 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		1B86EFBE295C6C5600436AF6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1B86EFC0295C6C6200436AF6 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		1BB6E6BA29545DE9008E04E9 /* AppChats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppChats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB6E6BD29545DE9008E04E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BB6E6BF29545DE9008E04E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +66,9 @@
 		1BB6E6E82954815D008E04E9 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		1BB6E6EA2954816F008E04E9 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		1BB6E6EC29548198008E04E9 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		1BE8FD0F295CA7CD00915BBE /* AppNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationBar.swift; sourceTree = "<group>"; };
+		1BE8FD11295CAE9300915BBE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		1BE8FD14295CB54B00915BBE /* NavBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				1B65B3D72955D28100623514 /* AppPhoneNumberTextField */,
+				1BE8FD0E295CA7AB00915BBE /* NavigationBar */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -77,6 +100,52 @@
 				1B65B3D82955D2AB00623514 /* AppPhoneNumberTextField.swift */,
 			);
 			path = AppPhoneNumberTextField;
+			sourceTree = "<group>";
+		};
+		1B86EFAD295B89F800436AF6 /* MainApplication */ = {
+			isa = PBXGroup;
+			children = (
+				1B86EFAE295B8A0F00436AF6 /* AllChats */,
+				1B86EFAF295B8A3D00436AF6 /* Chat */,
+				1B86EFB0295B8A4700436AF6 /* Profile */,
+			);
+			path = MainApplication;
+			sourceTree = "<group>";
+		};
+		1B86EFAE295B8A0F00436AF6 /* AllChats */ = {
+			isa = PBXGroup;
+			children = (
+				1B86EFB7295C323500436AF6 /* Cell */,
+				1B86EFB1295C2BAB00436AF6 /* AllChatsView.swift */,
+				1B86EFB3295C2BBA00436AF6 /* AllChatsViewController.swift */,
+			);
+			path = AllChats;
+			sourceTree = "<group>";
+		};
+		1B86EFAF295B8A3D00436AF6 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				1B86EFBC295C6C4700436AF6 /* ChatView.swift */,
+				1B86EFC0295C6C6200436AF6 /* ChatViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		1B86EFB0295B8A4700436AF6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1B86EFBA295C69CC00436AF6 /* ProfileView.swift */,
+				1B86EFBE295C6C5600436AF6 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		1B86EFB7295C323500436AF6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1B86EFB8295C324D00436AF6 /* ChatCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		1BB6E6B129545DE9008E04E9 = {
@@ -102,7 +171,9 @@
 				1BB6E6DA29546AFE008E04E9 /* AppFont */,
 				1B65B3D62955D25D00623514 /* CustomUI */,
 				1BB6E6E429547854008E04E9 /* Extensions */,
+				1BE8FD13295CB53400915BBE /* Enums */,
 				1BB6E6D229545E2A008E04E9 /* StartApplication */,
+				1B86EFAD295B89F800436AF6 /* MainApplication */,
 				1BB6E6D929546009008E04E9 /* Assets */,
 				1BB6E6CB29545DEB008E04E9 /* Info.plist */,
 			);
@@ -168,8 +239,10 @@
 			isa = PBXGroup;
 			children = (
 				1BB6E6E52954786B008E04E9 /* UIViewExtension.swift */,
-				1BB6E6EC29548198008E04E9 /* UITextFieldExtension.swift */,
+				1BE8FD11295CAE9300915BBE /* UIViewControllerExtension.swift */,
+				1B86EFB5295C2ED300436AF6 /* UILabelExtension.swift */,
 				1B65B3DF2955DDBE00623514 /* UIButtonExtension.swift */,
+				1BB6E6EC29548198008E04E9 /* UITextFieldExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,6 +254,22 @@
 				1BB6E6EA2954816F008E04E9 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		1BE8FD0E295CA7AB00915BBE /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				1BE8FD0F295CA7CD00915BBE /* AppNavigationBar.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		1BE8FD13295CB53400915BBE /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				1BE8FD14295CB54B00915BBE /* NavBarType.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,13 +358,24 @@
 				1BB6E6DC29546B33008E04E9 /* AppFont.swift in Sources */,
 				1BB6E6DE29546B50008E04E9 /* Font.swift in Sources */,
 				1BB6E6EB2954816F008E04E9 /* RegistrationViewController.swift in Sources */,
+				1B86EFBD295C6C4700436AF6 /* ChatView.swift in Sources */,
+				1B86EFB4295C2BBA00436AF6 /* AllChatsViewController.swift in Sources */,
 				1BB6E6BE29545DE9008E04E9 /* AppDelegate.swift in Sources */,
 				1B65B3E02955DDBE00623514 /* UIButtonExtension.swift in Sources */,
+				1B86EFB6295C2ED400436AF6 /* UILabelExtension.swift in Sources */,
+				1B86EFBF295C6C5600436AF6 /* ProfileViewController.swift in Sources */,
+				1BE8FD10295CA7CD00915BBE /* AppNavigationBar.swift in Sources */,
 				1B65B3D92955D2AB00623514 /* AppPhoneNumberTextField.swift in Sources */,
+				1B86EFBB295C69CC00436AF6 /* ProfileView.swift in Sources */,
+				1B86EFB9295C324D00436AF6 /* ChatCell.swift in Sources */,
 				1BB6E6ED29548198008E04E9 /* UITextFieldExtension.swift in Sources */,
 				1BB6E6E62954786B008E04E9 /* UIViewExtension.swift in Sources */,
 				1BB6E6C029545DE9008E04E9 /* SceneDelegate.swift in Sources */,
 				1BB6E6D529545FE6008E04E9 /* EnterView.swift in Sources */,
+				1B86EFB2295C2BAB00436AF6 /* AllChatsView.swift in Sources */,
+				1B86EFC1295C6C6300436AF6 /* ChatViewController.swift in Sources */,
+				1BE8FD15295CB54B00915BBE /* NavBarType.swift in Sources */,
+				1BE8FD12295CAE9300915BBE /* UIViewControllerExtension.swift in Sources */,
 				1BB6E6E92954815D008E04E9 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YX6DWV484Z;
@@ -429,6 +530,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = EvgenyTarakin.AppChats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -440,6 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YX6DWV484Z;
@@ -456,6 +559,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = EvgenyTarakin.AppChats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

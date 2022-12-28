@@ -11,4 +11,8 @@ extension UIView {
     func setAppCornerRadius() {
         self.layer.cornerRadius = 6
     }
+    
+    func setWhiteBackgroundColor() {
+        self.backgroundColor = .white
+    }
 }

@@ -36,21 +36,15 @@ class RegistrationView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
-        label.textColor = .black
+        label.setTitleLabel("Регистрация")
         label.font = AppFont.bold36
-        label.text = "Регистрация"
         
         return label
     }()
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = AppFont.regular16
-        label.text = "Введите имя и никнейм"
-        label.textColor = .lightGray
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
+        label.setDescriptionLabel("Введите имя и никнейм")
         
         return label
     }()
@@ -75,7 +69,6 @@ class RegistrationView: UIView {
         textField.withPrefix = true
         textField.withFlag = true
         textField.withExamplePlaceholder = true
-        textField.withDefaultPickerUI = true
         textField.isEnabled = false
         
         return textField
@@ -84,6 +77,7 @@ class RegistrationView: UIView {
     private lazy var button: UIButton = {
         let button = UIButton()
         button.setEnterButton("Зарегистрироваться")
+        button.addTarget(self, action: #selector(tapRegistrationButton), for: .touchUpInside)
         
         return button
     }()

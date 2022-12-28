@@ -19,7 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let enterController = EnterViewController()
             let navigationController = UINavigationController(rootViewController: enterController)
             navigationController.overrideUserInterfaceStyle = .light
-            navigationController.view.backgroundColor = .white
             navigationController.interactivePopGestureRecognizer?.isEnabled = false
             navigationController.navigationBar.isHidden = true
             window.rootViewController = navigationController

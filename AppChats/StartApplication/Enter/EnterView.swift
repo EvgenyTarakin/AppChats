@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import PhoneNumberKit
 
-// MARK: - EnterViewDelegate
+// MARK: - protocol
 protocol EnterViewDelegate: AnyObject {
     func tapEnterWithNumberButton(_ number: String)
     func dismissKeyboard()
@@ -57,11 +57,7 @@ class EnterView: UIView {
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = AppFont.regular16
-        label.text = "Введите номер телефона"
-        label.textColor = .lightGray
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
+        label.setDescriptionLabel("Введите номер телефона")
         
         return label
     }()
@@ -181,6 +177,7 @@ class EnterView: UIView {
     
 }
 
+// MARK: - extension
 extension EnterView: UITextFieldDelegate {
 
 }

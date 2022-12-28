@@ -26,6 +26,8 @@ class RegistrationViewController: UIViewController {
     
 //    MARK: - private func
     private func commonInit() {
+        view.setWhiteBackgroundColor()
+
         view.addSubview(registrationView)
         registrationView.snp.makeConstraints {
             $0.top.bottom.left.right.equalTo(view.safeAreaLayoutGuide)
@@ -41,7 +43,8 @@ class RegistrationViewController: UIViewController {
 
 extension RegistrationViewController: RegistrationViewDelegate {
     func tapRegistrationButton() {
-        
+        let controller = AllChatsViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func dismissKeyboard() {

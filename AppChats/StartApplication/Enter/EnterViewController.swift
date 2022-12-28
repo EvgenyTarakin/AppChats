@@ -26,6 +26,8 @@ class EnterViewController: UIViewController {
     
 //    MARK: - private func
     private func commonInit() {
+        view.setWhiteBackgroundColor()
+        
         view.addSubview(enterView)
         enterView.snp.makeConstraints {
             $0.top.bottom.left.right.equalTo(view.safeAreaLayoutGuide)
