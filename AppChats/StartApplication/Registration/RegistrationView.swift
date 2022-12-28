@@ -42,16 +42,13 @@ class RegistrationView: UIView {
         return label
     }()
     
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.setDescriptionLabel("Введите имя и никнейм")
-        
-        return label
-    }()
-    
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.setTextFieldBorder()
+        textField.placeholder = "Введите имя"
+        textField.returnKeyType = .next
+        textField.setButtonsOnKeyboard()
+        textField.delegate = self
         
         return textField
     }()
@@ -59,6 +56,11 @@ class RegistrationView: UIView {
     private lazy var usernameTextField: UITextField = {
         let textField = UITextField()
         textField.setTextFieldBorder()
+        textField.placeholder = "Введите никнейм"
+        textField.returnKeyType = .done
+        textField.setButtonsOnKeyboard()
+        textField.setValidationUsername()
+        textField.delegate = self
 
         return textField
     }()
@@ -120,13 +122,6 @@ class RegistrationView: UIView {
             $0.height.equalTo(44)
         }
         
-        contentView.addSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints {
-            $0.bottom.equalTo(nameTextField.snp.top).inset(-8)
-            $0.left.right.equalToSuperview().inset(16)
-            $0.height.equalTo(20)
-        }
-        
         contentView.addSubview(usernameTextField)
         usernameTextField.snp.makeConstraints {
             $0.top.equalTo(nameTextField.snp.bottom).inset(-16)
@@ -163,7 +158,11 @@ class RegistrationView: UIView {
     
 //    MARK: - obj-c
     @objc private func tapRegistrationButton() {
-        delegate?.tapRegistrationButton()
+        if (nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
+
+        } else {
+            delegate?.tapRegistrationButton()
+        }
     }
     
     @objc private func tapOnView() {
@@ -182,4 +181,16 @@ class RegistrationView: UIView {
         scrollView.contentInset = .zero
     }
     
+}
+
+extension RegistrationView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            usernameTextField.becomeFirstResponder()
+        } else {
+            endEditing(true)
+        }
+        
+        return true
+    }
 }

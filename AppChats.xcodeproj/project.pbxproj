@@ -37,6 +37,7 @@
 		1BE8FD10295CA7CD00915BBE /* AppNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD0F295CA7CD00915BBE /* AppNavigationBar.swift */; };
 		1BE8FD12295CAE9300915BBE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD11295CAE9300915BBE /* UIViewControllerExtension.swift */; };
 		1BE8FD15295CB54B00915BBE /* NavBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD14295CB54B00915BBE /* NavBarType.swift */; };
+		1BE8FD18295CCB6300915BBE /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 1BE8FD17295CCB6300915BBE /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE8FD18295CCB6300915BBE /* Toast in Frameworks */,
 				1B65B3E329560BF400623514 /* MessageKit in Frameworks */,
 				1BB6E6D829545FFC008E04E9 /* SnapKit in Frameworks */,
 				1BB6E6F029548544008E04E9 /* PhoneNumberKit in Frameworks */,
@@ -292,6 +294,7 @@
 				1BB6E6D729545FFC008E04E9 /* SnapKit */,
 				1BB6E6EF29548544008E04E9 /* PhoneNumberKit */,
 				1B65B3E229560BF400623514 /* MessageKit */,
+				1BE8FD17295CCB6300915BBE /* Toast */,
 			);
 			productName = AppChats;
 			productReference = 1BB6E6BA29545DE9008E04E9 /* AppChats.app */;
@@ -325,6 +328,7 @@
 				1BB6E6D629545FFC008E04E9 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				1BB6E6EE29548543008E04E9 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 				1B65B3E129560BF400623514 /* XCRemoteSwiftPackageReference "MessageKit" */,
+				1BE8FD16295CCB6300915BBE /* XCRemoteSwiftPackageReference "toast-swift" */,
 			);
 			productRefGroup = 1BB6E6BB29545DE9008E04E9 /* Products */;
 			projectDirPath = "";
@@ -614,6 +618,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		1BE8FD16295CCB6300915BBE /* XCRemoteSwiftPackageReference "toast-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BastiaanJansen/toast-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -631,6 +643,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1BB6E6EE29548543008E04E9 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
 			productName = PhoneNumberKit;
+		};
+		1BE8FD17295CCB6300915BBE /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BE8FD16295CCB6300915BBE /* XCRemoteSwiftPackageReference "toast-swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
