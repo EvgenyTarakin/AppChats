@@ -39,9 +39,19 @@ class EnterViewController: UIViewController {
 // MARK: - extensions
 extension EnterViewController: EnterViewDelegate {    
     func tapEnterWithNumberButton(_ number: String) {
-        let controller = RegistrationViewController()
-        controller.configurate(number)
-        self.navigationController?.pushViewController(controller, animated: true)
+//        let controller = RegistrationViewController()
+//        controller.configurate(number)
+//        self.navigationController?.pushViewController(controller, animated: true)
+        enterView.updateView()
+    }
+    
+    func tapEnterButton(_ code: String) {
+        let controller = AllChatsViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func tapEnterButtonWithClearField(_ error: String) {
+        enterView.showToastError(error)
     }
     
     func dismissKeyboard() {

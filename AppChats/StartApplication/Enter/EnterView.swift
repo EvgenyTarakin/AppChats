@@ -8,22 +8,28 @@
 import UIKit
 import SnapKit
 import PhoneNumberKit
+import Toast
 
 // MARK: - protocol
 protocol EnterViewDelegate: AnyObject {
     func tapEnterWithNumberButton(_ number: String)
+    func tapEnterButton(_ code: String)
+    func tapEnterButtonWithClearField(_ error: String)
     func dismissKeyboard()
 }
 
 class EnterView: UIView {
     
+//    MARK: - StateEnterView
+    enum StateEnterView {
+        case number
+        case code
+    }
+    
 //    MARK: - property
     weak var delegate: EnterViewDelegate?
-    
+    private var state: StateEnterView = .number
     private lazy var tap = UITapGestureRecognizer(target: self, action: #selector(tapOnView))
-//    private lazy var alertView: UIAlertView = {
-//
-//    }
     
     private lazy var indicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -64,13 +70,23 @@ class EnterView: UIView {
     
     private lazy var numberTextField: AppPhoneNumberTextField = {
         let textField = AppPhoneNumberTextField()
-        textField.delegate = self
-        textField.setTextFieldBorder()
+        textField.setStandartTextField()
         textField.setButtonsOnKeyboard()
         textField.withPrefix = true
         textField.withFlag = true
         textField.withExamplePlaceholder = true
         textField.withDefaultPickerUI = true
+        textField.delegate = self
+        
+        return textField
+    }()
+    
+    private lazy var codeTextField: UITextField = {
+        let textField = UITextField()
+        textField.setStandartTextField()
+        textField.setButtonsOnKeyboard()
+        textField.setCodeTextField()
+        textField.delegate = self
         
         return textField
     }()
@@ -149,18 +165,58 @@ class EnterView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+//    MARK: - func
+    func updateView() {
+        state = .code
+        tapOnView()
+        numberTextField.isHidden = true
+        descriptionLabel.text = "Введите код подтверждения из смс"
+        contentView.addSubview(codeTextField)
+        codeTextField.becomeFirstResponder()
+        codeTextField.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(16)
+            $0.center.equalToSuperview()
+            $0.height.equalTo(44)
+        }
+        enterWithNumberButton.setTitle("Войти", for: .normal)
+    }
+    
+    func showToastError(_ error: String) {
+        tapOnView()
+        let errorView = ErrorView()
+        errorView.configurate(error)
+        let toastView = AppleToastView(child: errorView)
+        let config = ToastConfiguration(
+            displayTime: 1
+        )
+        let toast = Toast.custom(view: toastView, config: config)
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
+        toast.show()
+    }
+    
 //    MARK: - obj-c
     @objc private func tapEnterButton() {
-//        indicatorView.startAnimating()
-//        contentView.alpha = 0.1
-        self.delegate?.tapEnterWithNumberButton(self.numberTextField.text ?? "")
+        indicatorView.startAnimating()
+        contentView.alpha = 0.1
+        if state == .number {
+            if numberTextField.text?.count == 16 {
+                delegate?.tapEnterWithNumberButton(numberTextField.text ?? "")
+            } else {
+                delegate?.tapEnterButtonWithClearField("Введите правильный номер")
+            }
+        } else {
+            if codeTextField.text?.count == 4 {
+                delegate?.tapEnterButton(codeTextField.text ?? "")
+            } else {
+                delegate?.tapEnterButtonWithClearField("Введите правильный код")
+            }
+        }
     }
     
     @objc private func tapOnView() {
         contentView.alpha = 1
         indicatorView.stopAnimating()
         delegate?.dismissKeyboard()
-//        DispatchQueue.global().as
     }
     
     @objc private func showKeyboard(_ sender: Notification) {
@@ -179,5 +235,16 @@ class EnterView: UIView {
 
 // MARK: - extension
 extension EnterView: UITextFieldDelegate {
-
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == numberTextField {
+            if textField.text?.count != 16 || string.count == 0 {
+                return true
+            }
+        } else {
+            if textField.text?.count != 4 || string.count == 0 {
+                return true
+            }
+        }
+        return false
+    }
 }

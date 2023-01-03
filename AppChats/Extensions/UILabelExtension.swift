@@ -29,4 +29,12 @@ extension UILabel {
         self.textAlignment = .left
         self.adjustsFontSizeToFitWidth = true
     }
+    
+    func setErrorLabel(_ text: String) {
+        self.text = text
+        self.font = AppFont.bold20
+        self.textColor = .systemRed
+        self.textAlignment = .center
+        self.adjustsFontSizeToFitWidth = true
+    }
 }

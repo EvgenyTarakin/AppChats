@@ -8,14 +8,20 @@
 import UIKit
 
 extension UITextField {
-    func setTextFieldBorder() {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: self.frame.size.height))
-        self.leftView = paddingView
-        self.leftViewMode = .always
+    func setStandartTextField() {
+//        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: self.frame.size.height))
+//        self.leftView = paddingView
+//        self.leftViewMode = .always
         self.backgroundColor = .systemGray6
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 1
+        self.font = AppFont.regular20
         self.setAppCornerRadius()
+    }
+    
+    func setCodeTextField() {
+        self.textAlignment = .center
+        self.keyboardType = .numberPad
     }
     
     func setValidationUsername() {

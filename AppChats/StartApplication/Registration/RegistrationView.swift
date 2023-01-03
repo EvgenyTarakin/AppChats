@@ -7,11 +7,13 @@
 
 import UIKit
 import SnapKit
+import Toast
 import PhoneNumberKit
 
 // MARK: - RegistrationViewDelegate
 protocol RegistrationViewDelegate: AnyObject {
     func tapRegistrationButton()
+    func tapRegistrationButtonWithClearFields()
     func dismissKeyboard()
 }
 
@@ -19,7 +21,6 @@ class RegistrationView: UIView {
 
 //    MARK: - property
     weak var delegate: RegistrationViewDelegate?
-    
     private lazy var tap = UITapGestureRecognizer(target: self, action: #selector(tapOnView))
     
     private lazy var scrollView: UIScrollView = {
@@ -44,7 +45,7 @@ class RegistrationView: UIView {
     
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
-        textField.setTextFieldBorder()
+        textField.setStandartTextField()
         textField.placeholder = "Введите имя"
         textField.returnKeyType = .next
         textField.setButtonsOnKeyboard()
@@ -55,7 +56,7 @@ class RegistrationView: UIView {
     
     private lazy var usernameTextField: UITextField = {
         let textField = UITextField()
-        textField.setTextFieldBorder()
+        textField.setStandartTextField()
         textField.placeholder = "Введите никнейм"
         textField.returnKeyType = .done
         textField.setButtonsOnKeyboard()
@@ -67,7 +68,7 @@ class RegistrationView: UIView {
     
     private lazy var numberTextField: PhoneNumberTextField = {
         let textField = PhoneNumberTextField()
-        textField.setTextFieldBorder()
+        textField.setStandartTextField()
         textField.withPrefix = true
         textField.withFlag = true
         textField.withExamplePlaceholder = true
@@ -156,10 +157,22 @@ class RegistrationView: UIView {
         numberTextField.text = number
     }
     
+    func showToastError() {
+        let errorView = ErrorView()
+        errorView.configurate("Заполните все поля")
+        let toastView = AppleToastView(child: errorView)
+        let config = ToastConfiguration(
+            displayTime: 1
+        )
+        let toast = Toast.custom(view: toastView, config: config)
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
+        toast.show()
+    }
+    
 //    MARK: - obj-c
     @objc private func tapRegistrationButton() {
         if (nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
-
+            delegate?.tapRegistrationButtonWithClearFields()
         } else {
             delegate?.tapRegistrationButton()
         }

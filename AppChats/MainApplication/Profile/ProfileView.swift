@@ -11,36 +11,42 @@ import PhoneNumberKit
 
 // MARK: - protocol
 protocol ProfileViewDelegate: AnyObject {
-    
+    func tapAvatarImageView()
 }
 
 class ProfileView: UIView {
 
 //    MARK: - property
     weak var delegate: ProfileViewDelegate?
+    private lazy var isSelectEditButton = false
     
-    private lazy var avatarImageView: UIImageView = {
-        let imageView = UIImageView()
+    private lazy var avatarButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "photo"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
         
-        return imageView
+        return button
     }()
-    
+        
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [numberTextField, nicknameTextField, cityTextField, dateTextField, zodiacTextField])
+        let stackView = UIStackView(arrangedSubviews: [usernameLabel, numberLabel, cityTextField, dateTextField, zodiacTextField])
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.distribution = .fillEqually
         
         return stackView
     }()
     
-    private lazy var numberTextField: PhoneNumberTextField = {
-        let phoneTextField = PhoneNumberTextField()
+    private lazy var usernameLabel: UILabel = {
+        let label = UILabel()
         
-        return phoneTextField
+        return label
     }()
     
-    private lazy var nicknameTextField: UITextField = {
-        let textField = UITextField()
+    private lazy var numberLabel: UILabel = {
+        let label = UILabel()
         
-        return textField
+        return label
     }()
     
     private lazy var cityTextField: UITextField = {
@@ -61,10 +67,18 @@ class ProfileView: UIView {
         return textField
     }()
     
-    private lazy var infoTextView: UITextView = {
-        let textView = UITextView()
+    private lazy var infoTextField: UITextField = {
+        let textField = UITextField()
         
-        return textView
+        return textField
+    }()
+    
+    private lazy var editButton: UIButton = {
+        let button = UIButton()
+        button.setEnterButton("Редактировать")
+        button.addTarget(self, action: #selector(tapEditButton), for: .touchUpInside)
+        
+        return button
     }()
     
 //    MARK: - init
@@ -79,7 +93,60 @@ class ProfileView: UIView {
     
 //    MARK: - private func
     private func commonInit() {
+        addSubview(avatarButton)
+        avatarButton.snp.makeConstraints {
+            $0.top.left.equalToSuperview().inset(16)
+            $0.width.equalToSuperview().multipliedBy(0.45)
+            $0.height.equalTo(avatarButton.snp.width)
+        }
         
+        addSubview(stackView)
+        stackView.snp.makeConstraints {
+            $0.top.right.equalToSuperview().inset(16)
+            $0.left.equalTo(avatarButton.snp.right).inset(-16)
+            $0.height.equalTo(avatarButton.snp.height)
+        }
+        
+        addSubview(editButton)
+        editButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(8)
+            $0.left.right.equalToSuperview().inset(16)
+            $0.height.equalTo(50)
+        }
+        
+        addSubview(infoTextField)
+        infoTextField.snp.makeConstraints {
+            $0.top.equalTo(stackView.snp.bottom).inset(-8)
+            $0.bottom.equalTo(editButton.snp.top).inset(-8)
+            $0.left.right.equalToSuperview().inset(16)
+        }
+    }
+    
+//    MARK: - func
+    func configurate(avatar: UIImage?, number: String, username: String, city: String, date: String, zodiac: String, info: String) {
+        avatarButton.setImage(avatar, for: .normal)
+        numberLabel.setStandartLabel("Ваш номер: \(number)")
+        usernameLabel.setStandartLabel(username)
+        cityTextField.text = city
+        dateTextField.text = date
+        zodiacTextField.text = zodiac
+        infoTextField.text = info
+    }
+    
+//    MARK: - obj-c
+    @objc private func tapEditButton() {
+        isSelectEditButton.toggle()
+        if isSelectEditButton {
+            editButton.setEditActiveButton()
+            avatarButton.addTarget(self, action: #selector(changeAvatarImage), for: .touchUpInside)
+        } else {
+            editButton.setEnterButton("Редактировать")
+            avatarButton.removeTarget(self, action: #selector(changeAvatarImage), for: .touchUpInside)
+        }
     }
 
+    @objc private func changeAvatarImage() {
+        delegate?.tapAvatarImageView()
+    }
+    
 }

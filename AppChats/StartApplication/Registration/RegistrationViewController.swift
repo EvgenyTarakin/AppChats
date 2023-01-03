@@ -47,6 +47,10 @@ extension RegistrationViewController: RegistrationViewDelegate {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    func tapRegistrationButtonWithClearFields() {
+        registrationView.showToastError()
+    }
+    
     func dismissKeyboard() {
         view.endEditing(true)
     }

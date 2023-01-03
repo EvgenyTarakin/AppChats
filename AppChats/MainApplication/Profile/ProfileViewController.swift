@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
 //    MARK: - property
     private lazy var profileView: ProfileView = {
         let profileView = ProfileView()
+        profileView.delegate = self
         
         return profileView
     }()
@@ -20,7 +21,6 @@ class ProfileViewController: UIViewController {
 //    MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         commonInit()
     }
     
@@ -32,8 +32,29 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileView)
         profileView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(68)
-            $0.bottom.left.right.equalToSuperview()
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 
+}
+
+extension ProfileViewController: ProfileViewDelegate {
+    func tapAvatarImageView() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+//        profileView.configurate(avatar: image)
+        dismiss(animated: true)
+    }
+    
 }

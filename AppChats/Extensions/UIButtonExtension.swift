@@ -12,6 +12,17 @@ extension UIButton {
         self.backgroundColor = .blue
         self.setAppCornerRadius()
         self.setTitle(text, for: .normal)
+        self.setTitleColor(.white, for: .normal)
+        self.titleLabel?.font = AppFont.regular20
+    }
+    
+    func setEditActiveButton() {
+        self.backgroundColor = .white
+        self.setAppCornerRadius()
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.blue.cgColor
+        self.setTitle("Готово", for: .normal)
+        self.setTitleColor(.blue, for: .normal)
         self.titleLabel?.font = AppFont.regular20
     }
 }
