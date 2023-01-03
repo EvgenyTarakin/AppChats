@@ -30,6 +30,14 @@ extension UILabel {
         self.adjustsFontSizeToFitWidth = true
     }
     
+    func setStandartBoldLabel(_ text: String) {
+        self.text = text
+        self.font = AppFont.bold20
+        self.textColor = .black
+        self.textAlignment = .left
+        self.adjustsFontSizeToFitWidth = true
+    }
+    
     func setErrorLabel(_ text: String) {
         self.text = text
         self.font = AppFont.bold20

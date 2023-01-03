@@ -34,6 +34,7 @@
 		1BB6E6EB2954816F008E04E9 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6E6EA2954816F008E04E9 /* RegistrationViewController.swift */; };
 		1BB6E6ED29548198008E04E9 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6E6EC29548198008E04E9 /* UITextFieldExtension.swift */; };
 		1BB6E6F029548544008E04E9 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1BB6E6EF29548544008E04E9 /* PhoneNumberKit */; };
+		1BB88D1F2964B676003A6E26 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D1E2964B676003A6E26 /* Chat.swift */; };
 		1BD336C82964563D00B8A8CF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD336C72964563D00B8A8CF /* ErrorView.swift */; };
 		1BE8FD10295CA7CD00915BBE /* AppNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD0F295CA7CD00915BBE /* AppNavigationBar.swift */; };
 		1BE8FD12295CAE9300915BBE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD11295CAE9300915BBE /* UIViewControllerExtension.swift */; };
@@ -68,6 +69,7 @@
 		1BB6E6E82954815D008E04E9 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		1BB6E6EA2954816F008E04E9 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		1BB6E6EC29548198008E04E9 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		1BB88D1E2964B676003A6E26 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		1BD336C72964563D00B8A8CF /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		1BE8FD0F295CA7CD00915BBE /* AppNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationBar.swift; sourceTree = "<group>"; };
 		1BE8FD11295CAE9300915BBE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				1B65B3D62955D25D00623514 /* CustomUI */,
 				1BB6E6E429547854008E04E9 /* Extensions */,
 				1BE8FD13295CB53400915BBE /* Enums */,
+				1BB88D1D2964B667003A6E26 /* Model */,
 				1BB6E6D229545E2A008E04E9 /* StartApplication */,
 				1B86EFAD295B89F800436AF6 /* MainApplication */,
 				1BB6E6D929546009008E04E9 /* Assets */,
@@ -259,6 +262,14 @@
 				1BB6E6EA2954816F008E04E9 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		1BB88D1D2964B667003A6E26 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BB88D1E2964B676003A6E26 /* Chat.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1BD336C62964562A00B8A8CF /* ErrorView */ = {
@@ -372,6 +383,7 @@
 				1BB6E6C229545DE9008E04E9 /* EnterViewController.swift in Sources */,
 				1BB6E6DC29546B33008E04E9 /* AppFont.swift in Sources */,
 				1BB6E6DE29546B50008E04E9 /* Font.swift in Sources */,
+				1BB88D1F2964B676003A6E26 /* Chat.swift in Sources */,
 				1BB6E6EB2954816F008E04E9 /* RegistrationViewController.swift in Sources */,
 				1B86EFBD295C6C4700436AF6 /* ChatView.swift in Sources */,
 				1B86EFB4295C2BBA00436AF6 /* AllChatsViewController.swift in Sources */,

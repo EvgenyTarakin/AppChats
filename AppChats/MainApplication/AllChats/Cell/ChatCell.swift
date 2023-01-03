@@ -18,11 +18,15 @@ class ChatCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.spacing = 16
         stackView.distribution = .fillProportionally
-        stackView.alignment = .firstBaseline
+        stackView.alignment = .leading
         
         avatarImageView.snp.makeConstraints {
             $0.height.equalToSuperview()
             $0.width.equalTo(avatarImageView.snp.height)
+        }
+        
+        middleStackView.snp.makeConstraints {
+            $0.height.equalToSuperview()
         }
         
         timeLabel.snp.makeConstraints {
@@ -34,6 +38,7 @@ class ChatCell: UITableViewCell {
     
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.cornerRadius = 22
         
         return imageView
     }()
@@ -49,14 +54,12 @@ class ChatCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.setStandartLabel("standart label")
         
         return label
     }()
     
     private lazy var lastMessageLabel: UILabel = {
         let label = UILabel()
-        label.setStandartLabel("standart label")
         
         return label
     }()
@@ -100,10 +103,11 @@ class ChatCell: UITableViewCell {
     }
     
 //    MARK: - func
-    func configurate(image: UIImage?, name: String, message: String) {
+    func configurate(image: UIImage? = UIImage(systemName: "person"), name: String, message: String, time: String) {
         avatarImageView.image = image
-        nameLabel.text = name
-        lastMessageLabel.text = message
+        nameLabel.setStandartBoldLabel(name)
+        lastMessageLabel.setStandartLabel(message)
+        timeLabel.setStandartLabel(time)
     }
 
 }

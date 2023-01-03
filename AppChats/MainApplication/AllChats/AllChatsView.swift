@@ -99,6 +99,7 @@ extension AllChatsView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.reuseIdentifier, for: indexPath) as? ChatCell else {
             return UITableViewCell() }
+        cell.configurate(name: "Вася Дыркин", message: "Ку, чел", time: "00:00")
         
         return cell
     }
