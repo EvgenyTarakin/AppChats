@@ -11,29 +11,12 @@ import SnapKit
 // MARK: - protocol
 protocol AllChatsDelegate: AnyObject {
     func didSelectCell()
-    func didSelectProfileButton()
 }
 
 class AllChatsView: UIView {
     
 //   MARK: - property
     weak var delegate: AllChatsDelegate?
-    
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.setTitleLabel("Чаты")
-        label.font = AppFont.bold36
-        
-        return label
-    }()
-    
-    private lazy var profileButton: UIButton = {
-        let button = UIButton()
-        button.setImage(.init(systemName: "person"), for: .normal)
-        button.addTarget(self, action: #selector(tapProfileButton), for: .touchUpInside)
-        
-        return button
-    }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -57,29 +40,11 @@ class AllChatsView: UIView {
     
 //    MARK: - private func
     private func commonInit() {
-        addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.top.left.right.equalToSuperview().inset(16)
-            $0.height.equalTo(60)
-        }
-        
-        addSubview(profileButton)
-        profileButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(16)
-            $0.right.equalToSuperview()
-            $0.width.height.equalTo(60)
-        }
-        
         addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
+            $0.top.equalToSuperview()
             $0.bottom.left.right.equalToSuperview()
         }
-    }
-    
-//    MARK: - obj-c
-    @objc private func tapProfileButton() {
-        delegate?.didSelectProfileButton()
     }
     
 }

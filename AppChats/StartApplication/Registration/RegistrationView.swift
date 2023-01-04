@@ -161,9 +161,7 @@ class RegistrationView: UIView {
         let errorView = ErrorView()
         errorView.configurate("Заполните все поля")
         let toastView = AppleToastView(child: errorView)
-        let config = ToastConfiguration(
-            displayTime: 1
-        )
+        let config = ToastConfiguration(displayTime: 1)
         let toast = Toast.custom(view: toastView, config: config)
         UINotificationFeedbackGenerator().notificationOccurred(.error)
         toast.show()

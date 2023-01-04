@@ -6,17 +6,16 @@
 //
 
 import UIKit
-import SnapKit
+import MessageKit
+import InputBarAccessoryView
 
-class ChatViewController: UIViewController {
+class ChatViewController: MessagesViewController {
     
-//    MARK: - property
-    private lazy var chatView: ChatView = {
-        let chatView = ChatView()
+//     MARK: - property
+    private var messages: [MessageType] = []
+    private var selfUser = Sender(senderId: "self", displayName: "Me")
+    private var otherUser = Sender(senderId: "other", displayName: "Вася дыркин")
         
-        return chatView
-    }()
-    
 //    MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +24,53 @@ class ChatViewController: UIViewController {
     
 //    MARK: - private func
     private func commonInit() {
+        navigationItem.title = "Чаты"
         view.setWhiteBackgroundColor()
         
-        view.addSubview(chatView)
-        chatView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(68)
-            $0.bottom.left.right.equalTo(view.safeAreaLayoutGuide)
-        }
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
+        
+        messages.append(Message(sender: otherUser, messageId: "1", sentDate: Date().addingTimeInterval(-1), kind: .text("Ку")))
+        messagesCollectionView.reloadData()
+//        showMessageTimestampOnSwipeLeft = true
+        
+        messagesCollectionView.removeConstraints(messagesCollectionView.constraints)
+//        messagesCollectionView
+        
     }
     
 //    MARK: - func
-    func configurate(_ title: String) {
-        setNavigationBar(title: title, type: .chat)
-    }
 
+}
+
+extension ChatViewController: MessagesLayoutDelegate {
+    
+}
+
+extension ChatViewController: MessagesDataSource {
+    var currentSender: MessageKit.SenderType {
+        return selfUser
+    }
+    
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
+        messages[indexPath.section]
+    }
+    
+    func numberOfSections(in messagesCollectionView: MessageKit.MessagesCollectionView) -> Int {
+        messages.count
+    }
+}
+
+extension ChatViewController: MessagesDisplayDelegate {
+    
+}
+
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        messages.append(Message(sender: selfUser, messageId: "1", sentDate: Date(), kind: .text(text)))
+        inputBar.inputTextView.text = nil
+        messagesCollectionView.reloadDataAndKeepOffset()
+    }
 }

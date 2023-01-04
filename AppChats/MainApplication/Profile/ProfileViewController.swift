@@ -27,11 +27,11 @@ class ProfileViewController: UIViewController {
 //    MARK: - private func
     private func commonInit() {
         view.setWhiteBackgroundColor()
-        setNavigationBar(title: "Профиль", type: .profile)
+        navigationItem.title = "Профиль"
         
         view.addSubview(profileView)
         profileView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(68)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.left.right.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
@@ -49,11 +49,10 @@ extension ProfileViewController: ProfileViewDelegate {
     }
 }
 
-extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate { 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
-//        profileView.configurate(avatar: image)
+        profileView.updateAvatar(image)
         dismiss(animated: true)
     }
     

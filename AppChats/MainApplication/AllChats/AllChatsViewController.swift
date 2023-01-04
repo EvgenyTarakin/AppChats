@@ -26,6 +26,10 @@ class AllChatsViewController: UIViewController {
     
 //    MARK: - private func
     private func commonInit() {
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.title = "Чаты"
+        navigationItem.hidesBackButton = true
+        navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: #selector(tapProfileButton)), animated: true)
         view.setWhiteBackgroundColor()
         
         view.addSubview(allChatsView)
@@ -34,18 +38,18 @@ class AllChatsViewController: UIViewController {
         }
     }
     
-}
-
-// MARK: - extesnion
-extension AllChatsViewController: AllChatsDelegate {
-    func didSelectProfileButton() {
+//    MARK: - obj-c
+    @objc private func tapProfileButton() {
         let controller = ProfileViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
     
+}
+
+// MARK: - extesnion
+extension AllChatsViewController: AllChatsDelegate {
     func didSelectCell() {
         let controller = ChatViewController()
-        controller.configurate("Имя любимое мое")
         navigationController?.pushViewController(controller, animated: true)
     }
 }

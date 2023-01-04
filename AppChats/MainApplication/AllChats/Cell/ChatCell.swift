@@ -39,6 +39,7 @@ class ChatCell: UITableViewCell {
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 22
+        imageView.clipsToBounds = true
         
         return imageView
     }()

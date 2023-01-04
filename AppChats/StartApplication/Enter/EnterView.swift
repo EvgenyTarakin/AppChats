@@ -83,7 +83,6 @@ class EnterView: UIView {
     
     private lazy var codeTextField: UITextField = {
         let textField = UITextField()
-        textField.setStandartTextField()
         textField.setButtonsOnKeyboard()
         textField.setCodeTextField()
         textField.delegate = self

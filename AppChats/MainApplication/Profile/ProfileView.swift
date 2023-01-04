@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import PhoneNumberKit
 
 // MARK: - protocol
 protocol ProfileViewDelegate: AnyObject {
@@ -20,10 +19,16 @@ class ProfileView: UIView {
     weak var delegate: ProfileViewDelegate?
     private lazy var isSelectEditButton = false
     
+    private lazy var avatarImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "photo")
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
+    
     private lazy var avatarButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "photo"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
         
         return button
     }()
@@ -93,18 +98,23 @@ class ProfileView: UIView {
     
 //    MARK: - private func
     private func commonInit() {
-        addSubview(avatarButton)
-        avatarButton.snp.makeConstraints {
+        addSubview(avatarImageView)
+        avatarImageView.snp.makeConstraints {
             $0.top.left.equalToSuperview().inset(16)
             $0.width.equalToSuperview().multipliedBy(0.45)
-            $0.height.equalTo(avatarButton.snp.width)
+            $0.height.equalTo(avatarImageView.snp.width)
+        }
+        
+        addSubview(avatarButton)
+        avatarButton.snp.makeConstraints {
+            $0.top.bottom.left.right.equalTo(avatarImageView)
         }
         
         addSubview(stackView)
         stackView.snp.makeConstraints {
             $0.top.right.equalToSuperview().inset(16)
-            $0.left.equalTo(avatarButton.snp.right).inset(-16)
-            $0.height.equalTo(avatarButton.snp.height)
+            $0.left.equalTo(avatarImageView.snp.right).inset(-16)
+            $0.height.equalTo(avatarImageView.snp.height)
         }
         
         addSubview(editButton)
@@ -124,13 +134,17 @@ class ProfileView: UIView {
     
 //    MARK: - func
     func configurate(avatar: UIImage?, number: String, username: String, city: String, date: String, zodiac: String, info: String) {
-        avatarButton.setImage(avatar, for: .normal)
+        avatarImageView.image = avatar
         numberLabel.setStandartLabel("Ваш номер: \(number)")
         usernameLabel.setStandartLabel(username)
         cityTextField.text = city
         dateTextField.text = date
         zodiacTextField.text = zodiac
         infoTextField.text = info
+    }
+    
+    func updateAvatar(_ avatar: UIImage?) {
+        avatarImageView.image = avatar
     }
     
 //    MARK: - obj-c
