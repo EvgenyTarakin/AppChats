@@ -133,14 +133,14 @@ class ProfileView: UIView {
     }
     
 //    MARK: - func
-    func configurate(avatar: UIImage?, number: String, username: String, city: String, date: String, zodiac: String, info: String) {
-        avatarImageView.image = avatar
-        numberLabel.setStandartLabel("Ваш номер: \(number)")
-        usernameLabel.setStandartLabel(username)
-        cityTextField.text = city
-        dateTextField.text = date
-        zodiacTextField.text = zodiac
-        infoTextField.text = info
+    func configurate(data: ProfileData?) {
+//        avatarImageView.image = UIIdata.avatar
+        numberLabel.setStandartLabel("Ваш номер: \(data?.phone ?? "")")
+        usernameLabel.setStandartLabel(data?.username ?? "")
+        cityTextField.text = data?.city
+        dateTextField.text = data?.birthday
+        zodiacTextField.text = data?.status
+        infoTextField.text = data?.vk
     }
     
     func updateAvatar(_ avatar: UIImage?) {

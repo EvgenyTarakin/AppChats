@@ -204,7 +204,7 @@ class EnterView: UIView {
                 delegate?.tapEnterButtonWithClearField("Введите правильный номер")
             }
         } else {
-            if codeTextField.text?.count == 4 {
+            if codeTextField.text?.count == 6 {
                 delegate?.tapEnterButton(codeTextField.text ?? "")
             } else {
                 delegate?.tapEnterButtonWithClearField("Введите правильный код")
@@ -240,7 +240,7 @@ extension EnterView: UITextFieldDelegate {
                 return true
             }
         } else {
-            if textField.text?.count != 4 || string.count == 0 {
+            if textField.text?.count != 6 || string.count == 0 {
                 return true
             }
         }

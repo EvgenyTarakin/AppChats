@@ -36,6 +36,15 @@
 		1BB88D1F2964B676003A6E26 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D1E2964B676003A6E26 /* Chat.swift */; };
 		1BB88D2129656CB2003A6E26 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D2029656CB2003A6E26 /* Sender.swift */; };
 		1BB88D2329656CF6003A6E26 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D2229656CF6003A6E26 /* Message.swift */; };
+		1BB88D272966F0AD003A6E26 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1BB88D262966F0AD003A6E26 /* Alamofire */; };
+		1BB88D292966F0CC003A6E26 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D282966F0CC003A6E26 /* NetworkService.swift */; };
+		1BB88D2B2966F0FC003A6E26 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D2A2966F0FC003A6E26 /* Request.swift */; };
+		1BB88D2D2966F220003A6E26 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D2C2966F220003A6E26 /* ApiError.swift */; };
+		1BB88D302966F338003A6E26 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D2F2966F338003A6E26 /* Api.swift */; };
+		1BB88D332966F54D003A6E26 /* EnterPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D322966F54D003A6E26 /* EnterPhone.swift */; };
+		1BB88D352966FC40003A6E26 /* EnterCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D342966FC40003A6E26 /* EnterCode.swift */; };
+		1BB88D37296703B3003A6E26 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D36296703B3003A6E26 /* Register.swift */; };
+		1BB88D3B296721AD003A6E26 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB88D3A296721AD003A6E26 /* Profile.swift */; };
 		1BD336C82964563D00B8A8CF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD336C72964563D00B8A8CF /* ErrorView.swift */; };
 		1BE8FD10295CA7CD00915BBE /* AppNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD0F295CA7CD00915BBE /* AppNavigationBar.swift */; };
 		1BE8FD15295CB54B00915BBE /* NavBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8FD14295CB54B00915BBE /* NavBarType.swift */; };
@@ -71,6 +80,14 @@
 		1BB88D1E2964B676003A6E26 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		1BB88D2029656CB2003A6E26 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		1BB88D2229656CF6003A6E26 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		1BB88D282966F0CC003A6E26 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		1BB88D2A2966F0FC003A6E26 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		1BB88D2C2966F220003A6E26 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		1BB88D2F2966F338003A6E26 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		1BB88D322966F54D003A6E26 /* EnterPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhone.swift; sourceTree = "<group>"; };
+		1BB88D342966FC40003A6E26 /* EnterCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCode.swift; sourceTree = "<group>"; };
+		1BB88D36296703B3003A6E26 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		1BB88D3A296721AD003A6E26 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		1BD336C72964563D00B8A8CF /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		1BE8FD0F295CA7CD00915BBE /* AppNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationBar.swift; sourceTree = "<group>"; };
 		1BE8FD14295CB54B00915BBE /* NavBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarType.swift; sourceTree = "<group>"; };
@@ -81,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB88D272966F0AD003A6E26 /* Alamofire in Frameworks */,
 				1BE8FD18295CCB6300915BBE /* Toast in Frameworks */,
 				1B65B3E329560BF400623514 /* MessageKit in Frameworks */,
 				1BB6E6D829545FFC008E04E9 /* SnapKit in Frameworks */,
@@ -179,6 +197,7 @@
 				1BB6E6E429547854008E04E9 /* Extensions */,
 				1BE8FD13295CB53400915BBE /* Enums */,
 				1BB88D1D2964B667003A6E26 /* Model */,
+				1BB88D242966F07A003A6E26 /* Network */,
 				1BB6E6D229545E2A008E04E9 /* StartApplication */,
 				1B86EFAD295B89F800436AF6 /* MainApplication */,
 				1BB6E6D929546009008E04E9 /* Assets */,
@@ -272,6 +291,53 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1BB88D242966F07A003A6E26 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1BB88D2E2966F312003A6E26 /* API */,
+				1BB88D312966F4EB003A6E26 /* Models */,
+				1BB88D282966F0CC003A6E26 /* NetworkService.swift */,
+				1BB88D2A2966F0FC003A6E26 /* Request.swift */,
+				1BB88D2C2966F220003A6E26 /* ApiError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1BB88D2E2966F312003A6E26 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1BB88D2F2966F338003A6E26 /* Api.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		1BB88D312966F4EB003A6E26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1BB88D382967146D003A6E26 /* Enter */,
+				1BB88D3929671478003A6E26 /* Main */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1BB88D382967146D003A6E26 /* Enter */ = {
+			isa = PBXGroup;
+			children = (
+				1BB88D322966F54D003A6E26 /* EnterPhone.swift */,
+				1BB88D342966FC40003A6E26 /* EnterCode.swift */,
+				1BB88D36296703B3003A6E26 /* Register.swift */,
+			);
+			path = Enter;
+			sourceTree = "<group>";
+		};
+		1BB88D3929671478003A6E26 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1BB88D3A296721AD003A6E26 /* Profile.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		1BD336C62964562A00B8A8CF /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +383,7 @@
 				1BB6E6EF29548544008E04E9 /* PhoneNumberKit */,
 				1B65B3E229560BF400623514 /* MessageKit */,
 				1BE8FD17295CCB6300915BBE /* Toast */,
+				1BB88D262966F0AD003A6E26 /* Alamofire */,
 			);
 			productName = AppChats;
 			productReference = 1BB6E6BA29545DE9008E04E9 /* AppChats.app */;
@@ -351,6 +418,7 @@
 				1BB6E6EE29548543008E04E9 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 				1B65B3E129560BF400623514 /* XCRemoteSwiftPackageReference "MessageKit" */,
 				1BE8FD16295CCB6300915BBE /* XCRemoteSwiftPackageReference "toast-swift" */,
+				1BB88D252966F0AD003A6E26 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 1BB6E6BB29545DE9008E04E9 /* Products */;
 			projectDirPath = "";
@@ -384,26 +452,34 @@
 				1BB6E6C229545DE9008E04E9 /* EnterViewController.swift in Sources */,
 				1BB6E6DC29546B33008E04E9 /* AppFont.swift in Sources */,
 				1BB6E6DE29546B50008E04E9 /* Font.swift in Sources */,
+				1BB88D332966F54D003A6E26 /* EnterPhone.swift in Sources */,
 				1BB88D1F2964B676003A6E26 /* Chat.swift in Sources */,
 				1BB6E6EB2954816F008E04E9 /* RegistrationViewController.swift in Sources */,
 				1B86EFB4295C2BBA00436AF6 /* AllChatsViewController.swift in Sources */,
 				1BB6E6BE29545DE9008E04E9 /* AppDelegate.swift in Sources */,
+				1BB88D302966F338003A6E26 /* Api.swift in Sources */,
 				1BD336C82964563D00B8A8CF /* ErrorView.swift in Sources */,
 				1B65B3E02955DDBE00623514 /* UIButtonExtension.swift in Sources */,
 				1B86EFB6295C2ED400436AF6 /* UILabelExtension.swift in Sources */,
 				1B86EFBF295C6C5600436AF6 /* ProfileViewController.swift in Sources */,
+				1BB88D37296703B3003A6E26 /* Register.swift in Sources */,
 				1BE8FD10295CA7CD00915BBE /* AppNavigationBar.swift in Sources */,
 				1B65B3D92955D2AB00623514 /* AppPhoneNumberTextField.swift in Sources */,
 				1B86EFBB295C69CC00436AF6 /* ProfileView.swift in Sources */,
 				1B86EFB9295C324D00436AF6 /* ChatCell.swift in Sources */,
+				1BB88D3B296721AD003A6E26 /* Profile.swift in Sources */,
+				1BB88D2B2966F0FC003A6E26 /* Request.swift in Sources */,
+				1BB88D352966FC40003A6E26 /* EnterCode.swift in Sources */,
 				1BB6E6ED29548198008E04E9 /* UITextFieldExtension.swift in Sources */,
 				1BB6E6E62954786B008E04E9 /* UIViewExtension.swift in Sources */,
 				1BB6E6C029545DE9008E04E9 /* SceneDelegate.swift in Sources */,
 				1BB6E6D529545FE6008E04E9 /* EnterView.swift in Sources */,
+				1BB88D2D2966F220003A6E26 /* ApiError.swift in Sources */,
 				1BB88D2329656CF6003A6E26 /* Message.swift in Sources */,
 				1B86EFB2295C2BAB00436AF6 /* AllChatsView.swift in Sources */,
 				1B86EFC1295C6C6300436AF6 /* ChatViewController.swift in Sources */,
 				1BE8FD15295CB54B00915BBE /* NavBarType.swift in Sources */,
+				1BB88D292966F0CC003A6E26 /* NetworkService.swift in Sources */,
 				1BB6E6E92954815D008E04E9 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,6 +718,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		1BB88D252966F0AD003A6E26 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		1BE8FD16295CCB6300915BBE /* XCRemoteSwiftPackageReference "toast-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BastiaanJansen/toast-swift";
@@ -667,6 +751,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1BB6E6EE29548543008E04E9 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
 			productName = PhoneNumberKit;
+		};
+		1BB88D262966F0AD003A6E26 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BB88D252966F0AD003A6E26 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		1BE8FD17295CCB6300915BBE /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

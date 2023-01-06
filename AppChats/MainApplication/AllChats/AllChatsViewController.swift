@@ -11,6 +11,18 @@ import SnapKit
 class AllChatsViewController: UIViewController {
     
 //    MARK: - property
+    private let chats: [Chat] = [
+        Chat(avatar: "", name: "Иван Гаврилов", lastMessage: "Ку, бро", date: "11.12"),
+        Chat(avatar: "", name: "Мама", lastMessage: "Сынок, купи хлеба", date: "06.12"),
+        Chat(avatar: "", name: "Брат", lastMessage: "Малой....", date: "06.12"),
+        Chat(avatar: "", name: "Сын", lastMessage: "Пап, купи мне мороженое", date: "06.12"),
+        Chat(avatar: "", name: "Дочь", lastMessage: "Пап, не покупай хлеб", date: "06.12"),
+        Chat(avatar: "", name: "Друг", lastMessage: "Приезжай ко мне", date: "06.12"),
+        Chat(avatar: "", name: "Подруга", lastMessage: "Приезжай ко мне", date: "06.12"),
+        Chat(avatar: "", name: "Собака", lastMessage: "Гав-гав", date: "06.12"),
+        Chat(avatar: "", name: "Кот", lastMessage: "Мяу", date: "06.12")
+    ]
+    
     private lazy var allChatsView: AllChatsView = {
         let allChatsView = AllChatsView()
         allChatsView.delegate = self
@@ -22,6 +34,7 @@ class AllChatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commonInit()
+        presentChats()
     }
     
 //    MARK: - private func
@@ -38,6 +51,10 @@ class AllChatsViewController: UIViewController {
         }
     }
     
+    private func presentChats() {
+        allChatsView.configurate(data: chats)
+    }
+    
 //    MARK: - obj-c
     @objc private func tapProfileButton() {
         let controller = ProfileViewController()
@@ -48,8 +65,9 @@ class AllChatsViewController: UIViewController {
 
 // MARK: - extesnion
 extension AllChatsViewController: AllChatsDelegate {
-    func didSelectCell() {
+    func didSelectCell(_ chat: Chat) {
         let controller = ChatViewController()
+        controller.configurate(chat.name, lastMessage: chat.lastMessage)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

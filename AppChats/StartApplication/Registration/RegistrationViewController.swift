@@ -11,6 +11,9 @@ import SnapKit
 class RegistrationViewController: UIViewController {
     
 //    MARK: - property
+    private let enterApi = NetworkService<Api>()
+    private lazy var phone = ""
+    
     private lazy var registrationView: RegistrationView = {
         let registartionView = RegistrationView()
         registartionView.delegate = self
@@ -34,21 +37,50 @@ class RegistrationViewController: UIViewController {
         }
     }
     
+    private func register(input: Register, completion: @escaping (Result<RegisterResponse, ApiError>) -> Void) {
+        do {
+            let json = try JSONEncoder().encode(input)
+            self.enterApi.request(endPoint: .register, jsonData: json, type: RegisterResponse.self, completion: { result in
+                switch result {
+                case .success(let response):
+                    let data = response
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            })
+        } catch {
+            print(error)
+        }
+    }
+    
 //    MARK: - func
     func configurate(_ number: String) {
+        self.phone = number
         registrationView.configurate(number)
     }
 
 }
 
 extension RegistrationViewController: RegistrationViewDelegate {
-    func tapRegistrationButton() {
-        let controller = AllChatsViewController()
-        navigationController?.pushViewController(controller, animated: true)
+    func tapRegistrationButton(name: String, username: String) {
+        register(input: Register(phone: self.phone, name: name, username: username)) { [weak self] result in
+            switch result {
+            case .success(let data):
+                let controller = AllChatsViewController()
+                
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(data.accessToken, forKey: "accessToken")
+                userDefaults.set(data.refreshToken, forKey: "refreshToken")
+                self?.navigationController?.pushViewController(controller, animated: true)
+            case .failure(let error):
+                self?.registrationView.showToastError(error.localizedDescription)
+            }
+        }
     }
     
     func tapRegistrationButtonWithClearFields() {
-        registrationView.showToastError()
+        registrationView.showToastError("Заполните все поля")
     }
     
     func dismissKeyboard() {

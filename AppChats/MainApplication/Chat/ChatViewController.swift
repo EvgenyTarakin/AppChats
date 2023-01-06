@@ -14,35 +14,31 @@ class ChatViewController: MessagesViewController {
 //     MARK: - property
     private var messages: [MessageType] = []
     private var selfUser = Sender(senderId: "self", displayName: "Me")
-    private var otherUser = Sender(senderId: "other", displayName: "Вася дыркин")
+    private var otherUser = Sender(senderId: "other", displayName: "Other")
         
 //    MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        commonInit()
     }
     
 //    MARK: - private func
     private func commonInit() {
-        navigationItem.title = "Чаты"
         view.setWhiteBackgroundColor()
         
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
-        
-        messages.append(Message(sender: otherUser, messageId: "1", sentDate: Date().addingTimeInterval(-1), kind: .text("Ку")))
         messagesCollectionView.reloadData()
-//        showMessageTimestampOnSwipeLeft = true
-        
-        messagesCollectionView.removeConstraints(messagesCollectionView.constraints)
-//        messagesCollectionView
-        
     }
     
 //    MARK: - func
-
+    func configurate(_ title: String, lastMessage: String) {
+        otherUser = Sender(senderId: "other", displayName: title)
+        navigationItem.title = title
+        messages.append(Message(sender: otherUser, messageId: "2", sentDate: Date(), kind: .text(lastMessage)))
+        commonInit()
+    }
 }
 
 extension ChatViewController: MessagesLayoutDelegate {
@@ -55,11 +51,11 @@ extension ChatViewController: MessagesDataSource {
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
-        messages[indexPath.section]
+        return messages[indexPath.section]
     }
     
     func numberOfSections(in messagesCollectionView: MessageKit.MessagesCollectionView) -> Int {
-        messages.count
+        return messages.count
     }
 }
 

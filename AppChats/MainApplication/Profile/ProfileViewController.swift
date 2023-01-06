@@ -11,6 +11,9 @@ import SnapKit
 class ProfileViewController: UIViewController {
     
 //    MARK: - property
+    private let network = NetworkService<Api>()
+    private var data: ProfileData?
+    
     private lazy var profileView: ProfileView = {
         let profileView = ProfileView()
         profileView.delegate = self
@@ -22,6 +25,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commonInit()
+        loadProfileData { [weak self] result in
+            switch result {
+            case .success(_): self?.profileView.configurate(data: self?.data)
+            case .failure(_): break
+            }
+        }
     }
     
 //    MARK: - private func
@@ -36,9 +45,21 @@ class ProfileViewController: UIViewController {
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    private func loadProfileData(completion: @escaping (Result<ProfileData, ApiError>) -> Void) {
+        network.getData(accessToken: UserDefaults.standard.object(forKey: "accessToken") as! String, endPoint: .meGet, type: ProfileResponse.self) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.data = data.profileData
+                
+            case .failure(_): break
+            }
+        }
+    }
 
 }
 
+// MARK: - extension
 extension ProfileViewController: ProfileViewDelegate {
     func tapAvatarImageView() {
         let picker = UIImagePickerController()

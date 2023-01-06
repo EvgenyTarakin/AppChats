@@ -12,7 +12,7 @@ import PhoneNumberKit
 
 // MARK: - RegistrationViewDelegate
 protocol RegistrationViewDelegate: AnyObject {
-    func tapRegistrationButton()
+    func tapRegistrationButton(name: String, username: String)
     func tapRegistrationButtonWithClearFields()
     func dismissKeyboard()
 }
@@ -157,9 +157,9 @@ class RegistrationView: UIView {
         numberTextField.text = number
     }
     
-    func showToastError() {
+    func showToastError(_ error: String) {
         let errorView = ErrorView()
-        errorView.configurate("Заполните все поля")
+        errorView.configurate(error)
         let toastView = AppleToastView(child: errorView)
         let config = ToastConfiguration(displayTime: 1)
         let toast = Toast.custom(view: toastView, config: config)
@@ -172,7 +172,7 @@ class RegistrationView: UIView {
         if (nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
             delegate?.tapRegistrationButtonWithClearFields()
         } else {
-            delegate?.tapRegistrationButton()
+            delegate?.tapRegistrationButton(name: nameTextField.text ?? "", username: usernameTextField.text ?? "")
         }
     }
     

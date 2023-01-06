@@ -10,13 +10,14 @@ import SnapKit
 
 // MARK: - protocol
 protocol AllChatsDelegate: AnyObject {
-    func didSelectCell()
+    func didSelectCell(_ chat: Chat)
 }
 
 class AllChatsView: UIView {
     
 //   MARK: - property
     weak var delegate: AllChatsDelegate?
+    private var data: [Chat] = []
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -47,24 +48,30 @@ class AllChatsView: UIView {
         }
     }
     
+//    MARK: - func
+    func configurate(data: [Chat]) {
+        self.data = data
+        tableView.reloadData()
+    }
+    
 }
 
 // MARK: - extension
 extension AllChatsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelectCell()
+        delegate?.didSelectCell(data[indexPath.row])
     }
 }
 
 extension AllChatsView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.reuseIdentifier, for: indexPath) as? ChatCell else {
             return UITableViewCell() }
-        cell.configurate(name: "Вася Дыркин", message: "Ку, чел", time: "00:00")
+        cell.configurate(name: data[indexPath.row].name, message: data[indexPath.row].lastMessage, time: data[indexPath.row].date)
         
         return cell
     }
